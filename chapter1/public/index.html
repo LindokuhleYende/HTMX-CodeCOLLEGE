@@ -12,9 +12,12 @@
 <body>
     <div class="container">
         <h1>Simple Request Example</h1>
-        <button type="button" class="btn btn-primary" hx-get="/users">
+        <button type="button" class="btn btn-primary" hx-get="/users" hx-target="#users">
             Fetch Some Stuff
         </button>
+        <div id="users">
+
+        </div>
     </div>
 
     <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-…" crossorigin="anonymous">
