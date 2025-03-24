@@ -12,7 +12,12 @@
 <body>
     <div class="container">
         <h1>Simple Request Example</h1>
-        <button type="button" class="btn btn-primary" hx-get="/users" hx-target="#users" hx-confirm="Do you want to proceed with fetching users?">
+        <button type="button" 
+        class="btn btn-primary" 
+        hx-get="/users" 
+        hx-target="#users" 
+        hx-confirm="Do you want to proceed with fetching users?"
+        hx-vals='{"limit":3}'>
             Fetch Some Stuff
         </button>
         <div id="users" style="background-color: rgb(70, 70, 124); padding: 10px;">
