@@ -13,7 +13,8 @@ app.get('/users', async(req, res) => {
 // { id: 2, name: 'Bob Williams' },
 // { id: 3, name: 'Shannon Jackson'},
 // ]
-const limit = +req.query.limit || 10;
+setTimeout(async ()=>{
+    const limit = +req.query.limit || 10;
 const response = await fetch(`https://jsonplaceholder.typicode.com/users?_limit=${limit}`)
 const users = await response.json()
 res.send(`
@@ -22,6 +23,8 @@ res.send(`
 ${users.map((user)=>`<li class="list-group-item">${user.name}</li>`).join('')}
 </ul>
 `)
+},2000)
+
 });
 // Start the server
 app.listen (3000, ()=>{
