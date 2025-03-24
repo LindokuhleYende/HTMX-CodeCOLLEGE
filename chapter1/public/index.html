@@ -17,9 +17,13 @@
         hx-get="/users" 
         hx-target="#users" 
         hx-confirm="Do you want to proceed with fetching users?"
+        hx-indicator="#loading"
         hx-vals='{"limit":3}'>
             Fetch Some Stuff
         </button>
+        <div id="loading" class="htmx-indicator spinner-border" role="status">
+        </div>
+        <br>
         <div id="users" style="background-color: rgb(70, 70, 124); padding: 10px;">
 
         </div>
