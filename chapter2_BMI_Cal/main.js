@@ -8,6 +8,17 @@ app.use(express.urlencoded ({ extended: true }));
 app.use(express.json());
 // Handle GET request to fetch users
 
+app.post('/calculate', (req, res) => {
+    const height = parseFloat(req.body.height);
+    const weight = parseFloat(req.body.weight);
+    const bmi = weight / (height * height);
+
+    res.send(`
+    <p>Height of ${height} & Weight of ${weight} gives you BMI of ${bmi.toFixed(2)}</p>
+    `);
+});
+
+
 
 // Start the server
 app.listen (3010, ()=>{
