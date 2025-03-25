@@ -1,13 +1,17 @@
-import express from 'express';
+import express from "express";
 const app = express();
 // Set static folder
-app.use(express.static('public'));
+app.use(express.static("public"));
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
-// Handle GET request to fetch users
+// Handle POST request for contacts search
 app.post('/search', async (req, res) => {
+    const searchTerm = req.body.search.toLowerCase();
+    if (!searchTerm) {
+        return res.send('<tr></tr>');
+    }
     const response = await fetch(`https://jsonplaceholder.typicode.com/users`);
     const users = await response.json()
     const searchResults = users.filter((user) => {
@@ -16,11 +20,11 @@ app.post('/search', async (req, res) => {
         return name.includes(searchTerm) || email.includes(searchTerm)
     })
     const searchResultHtml = searchResults
-        .map((user) =>
-            `<tr>
-        <td>${user.name}</td>
-        <td>${user.email}</td>
-    </tr>
+        .map((user) => `
+<tr>
+<td>${user.name}</td>
+<td>${user.email}</td>
+</tr>
 `)
         .join('');
     res.send(searchResultHtml);
@@ -28,7 +32,14 @@ app.post('/search', async (req, res) => {
 
 
 
+
+
+
+
+
+
+
 // Start the server
 app.listen(3020, () => {
-    console.log('Server listening on port 3020');
+    console.log("Server listening on port 3020");
 });
