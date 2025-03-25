@@ -12,13 +12,19 @@
         <h1>
             BMI Calculator
         </h1>
-        <form>
+        <form
+        hx-trigger="submit"
+        hx-post="/calculate"
+        hx-target="#result"
+        
+        >
             <input name="height" type="text" class="form-control" placeholder="Enter Height in Meters">
             <input name="weight" type="text" class="form-control" placeholder="Enter Weight in Kg">
             <button type="submit" class="btn btn-primary">
                 Calculate BMI
             </button>
         </form>
+        <div id="result"></div>
     </div>
 
     <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-…" crossorigin="anonymous">
