@@ -29,6 +29,6 @@ app.post('/search', async (req, res) => {
 
 
 // Start the server
-app.listen(3010, () => {
-    console.log('Server listening on port 3010');
+app.listen(3020, () => {
+    console.log('Server listening on port 3020');
 });
