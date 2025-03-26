@@ -6,8 +6,45 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
-// Handle POST request for contacts search
-
+// Handle POST request for email validation
+app.post('/email', (req, res) => {
+    const submittedEmail = req.body.email;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (emailRegex.test(submittedEmail)) {
+        return res.send(
+            `<div class="mb-3" hx-target="this" hx-swap="outerHTML">
+                <label class="form-label">Email address</label>
+                <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    hx-post="/email"
+                value="${submittedEmail}"
+                >
+                <div class="alert alert-success" role="alert">
+                That email is valid
+                </div>
+            </div> `
+        )
+    }
+    else {
+        return res.send(
+            `<div class="mb-3" hx-target="this" hx-swap="outerHTML">
+                <label class="form-label">Email address</label>
+                <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    hx-post="/email"
+                    value="${submittedEmail}"
+                >
+                <div class="alert alert-danger" role="alert">
+                    Please enter a valid email address
+                </div>
+            </div>`
+        )
+    }
+});
 
 // Start the server
 app.listen(3050, () => {
