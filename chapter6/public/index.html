@@ -13,30 +13,38 @@
             YSS BLOG
         </h1>
         <hr>
-        <div class="card" style="width: 18rem;" hx-target="this" hx-swap="outerHTML">
-            <div class="card-body" style="background-color: aqua;">
-                <h5 class="card-title">Greg Lim</h5>
-                <p class="card-text">
-                    Follower of Christ | Author of Best-selling Amazon Tech Books and Creator of Coding
-                    Courses
-                </p>
-                <button href="#" class="btn btn-primary" hx-get="/user/1/edit">
-                    Click To Edit
-                </button>
-            </div>
-        </div>
-        <br>
-        <div class="card" style="width: 18rem;" hx-target="this" hx-swap="outerHTML">
-            <div class="card-body" style="background-color: rgb(175, 245, 113);">
-                <h5 class="card-title">Siphosami</h5>
-                <p class="card-text">
-                    Motherhood journal| Published 2024 Septermber
-                </p>
-                <button href="#" class="btn btn-primary" hx-get="/user/1/edit">
-                    Click To Edit
-                </button>
-            </div>
-        </div>
+        <table>
+            <tr>
+                <td>
+                    <div class="card" style="width: 18rem;" hx-target="this" hx-swap="outerHTML">
+                        <div class="card-body" style="background-color: aqua;">
+                            <h5 class="card-title">Greg Lim</h5>
+                            <p class="card-text">
+                                Follower of Christ | Author of Best-selling Amazon Tech Books and Creator of Coding
+                                Courses
+                            </p>
+                            <button href="#" class="btn btn-primary" hx-get="/user/1/edit">
+                                Click To Edit
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="card" style="width: 18rem;" hx-target="this" hx-swap="outerHTML">
+                        <div class="card-body" style="background-color: rgb(175, 245, 113);">
+                            <h5 class="card-title">Siphosami</h5>
+                            <p class="card-text">
+                                Motherhood journal| Published 2024 Septermber
+                            </p>
+                            <button href="#" class="btn btn-primary" hx-get="/user/1/edit">
+                                Click To Edit
+                            </button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
     </div>
     <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-…" crossorigin="anonymous">
     </script>

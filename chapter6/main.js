@@ -13,13 +13,11 @@ app.get('/user/:id/edit', (req, res) => {
 <form hx-put="/user/1" hx-target="this" hx-swap="outerHTML">
 <div class="mb-3">
 <label for="name" class="form-label">Name</label>
-<input type="text" class="form-control" id="name" name="name" value="Greg
-Lim">
+<input type="text" class="form-control" id="name" name="name" value="">
 </div>
 <div class="mb-3">
 <label for="bio" class="form-label">Bio</label>
-<textarea type="text" class="form-control" id="bio" name="bio">Follower of Christ |
-Author of Best-selling Amazon Tech Books and Creator of Coding Courses
+<textarea type="text" class="form-control" id="bio" name="bio"> 
 </textarea>
 </div>
 <button type="submit" class="btn btn-primary">
