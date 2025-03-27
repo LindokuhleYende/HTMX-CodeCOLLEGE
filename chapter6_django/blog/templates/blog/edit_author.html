@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/htmx.org"></script>
+    <script>
+    document.body.addEventListener('htmx:beforeRequest', (evt) => console.log('HTMX Request:', evt.detail));
+    document.body.addEventListener('htmx:afterRequest', (evt) => console.log('HTMX Response:', evt.detail));
+    </script>
+
+
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form method="POST" action="{% url 'update_user' author.id %}"
+            >
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ author.name }}" required>
+        
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" required>{{ author.description }}</textarea>
+        
+            <button
+            hx-post="{% url 'update_user' author.id %}"
+            hx-target="#author-{{ author.id }}" 
+            hx-swap="outerHTML"
+            class="btn btn-primary" type="submit">Save</button>
+        </form>
+
+    </div>
+
+</body>
+</html>
